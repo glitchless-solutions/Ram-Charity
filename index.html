@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="light dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>NGO Homepage - Empowering India</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1A4D2E", // Dark Green
+                        secondary: "#FF9933", // Saffron/Orange
+                        accent: "#E8F3D6", // Light Green
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216"
+                    },
+                    fontFamily: {
+                        display: "Inter"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    }
+                }
+            }
+        };
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .theme-toggle-btn .sun-icon { display: block; }
+            .theme-toggle-btn .moon-icon { display: none; }
+            .dark .theme-toggle-btn .sun-icon { display: none; }
+            .dark .theme-toggle-btn .moon-icon { display: block; }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white transition-colors duration-300">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+        <header
+            class="sticky top-0 z-50 w-full bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-solid border-gray-100 dark:border-gray-800">
+            <div class="max-w-[1280px] mx-auto flex items-center justify-between px-10 py-4">
+                <div class="flex items-center">
+                    <!-- rounded border-2 border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 -->
+                    <div class="flex h-12 w-48 items-center justify-center">
+                        <img src="./logo1.png" alt="Logo">
+                        <!-- <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">Insert Logo (Brand + Name)</span> -->
+                    </div>
+                </div>
+                <div class="flex flex-1 justify-end gap-6 items-center">
+                    <div class="hidden md:flex items-center gap-9">
+                        <a class="text-[#111418] dark:text-gray-300 text-sm font-semibold hover:text-primary dark:hover:text-secondary transition-colors"
+                            href="#">Home</a>
+                        <a class="text-[#111418] dark:text-gray-300 text-sm font-semibold hover:text-primary dark:hover:text-secondary transition-colors"
+                            href="#">About Us</a>
+                        <a class="text-[#111418] dark:text-gray-300 text-sm font-semibold hover:text-primary dark:hover:text-secondary transition-colors"
+                            href="#">Our Work</a>
+                        <a class="text-[#111418] dark:text-gray-300 text-sm font-semibold hover:text-primary dark:hover:text-secondary transition-colors"
+                            href="#">Get Involved</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button aria-label="Toggle dark mode"
+                            class="theme-toggle-btn flex size-10 cursor-pointer items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-primary dark:text-secondary hover:bg-gray-50 dark:hover:bg-gray-700 transition-all shadow-sm"
+                            onclick="document.documentElement.classList.toggle('dark')">
+                            <span class="material-symbols-outlined sun-icon !text-[20px]">light_mode</span>
+                            <span class="material-symbols-outlined moon-icon !text-[20px]">dark_mode</span>
+                        </button>
+                        <button
+                            class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold shadow-md hover:bg-primary/90 transition-all">
+                            <span>Donate</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-1">
+            <div class="max-w-[1280px] mx-auto px-6 py-6 lg:px-10">
+                <div class="relative overflow-hidden rounded-xl bg-cover bg-center min-h-[560px] flex items-end shadow-2xl"
+                    data-alt="Children in a rural classroom in India smiling together"
+                    style='background-image: linear-gradient(to top, rgba(26, 77, 46, 0.95) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGMEBTZjqddNbeSma1KjW4e_UEwtJ6A3-7c32HYjcHlaiRXasy8CCLYO5DBe7tsfT9dfGZQL-fBnnfSeCKwnrhNDjjlwnTnXsyTQOmS0qJY92bJJI_d5xfD4lq9-WZLrnxfVuWcmtbeekolyVpztorbbsmmY0jZJ7G3tqcasMp096HLkx2OgmP_LFoXwhzsxDeGPzilhA4W45Dt1jwsw0jlvXhmuiD7tIBpHJUMiefoMzS27xmKUEH6HYqd1tuho2t_LGIVbY7_Ug");'>
+                    <div class="p-8 md:p-16 flex flex-col gap-8 max-w-[800px] relative z-10">
+                        <div class="flex flex-col gap-4 text-left">
+                            <h1 class="text-white text-4xl md:text-6xl font-black leading-tight tracking-[-0.033em]">
+                                Empowering Communities. Transforming Lives in India.
+                            </h1>
+                            <p class="text-white/90 text-lg md:text-xl font-normal leading-relaxed max-w-2xl">
+                                Dedicated to sustainable development and grassroots empowerment across Education,
+                                Women's Empowerment, and Livelihood initiatives.
+                            </p>
+                        </div>
+                        <div class="flex gap-4">
+                            <button
+                                class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-secondary text-white text-lg font-bold shadow-lg hover:translate-y-[-2px] transition-all hover:bg-secondary/90">
+                                <span>Donate Now</span>
+                            </button>
+                            <button
+                                class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-white/20 backdrop-blur-md text-white text-lg font-bold border border-white/30 hover:bg-white/30 transition-all">
+                                <span>Learn More</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="max-w-[1280px] mx-auto px-10 py-20 text-center">
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <h2 class="text-secondary text-sm font-bold tracking-widest uppercase">Our Mission</h2>
+                    <h3 class="text-[#111418] dark:text-white text-3xl md:text-4xl font-bold leading-tight">Bridging Hearts and Impact</h3>
+                    <p class="text-[#111418]/70 dark:text-gray-400 text-lg md:text-xl leading-relaxed">
+                        Our mission is to uplift and transform the lives of underserved communities in the Panchmahal region of India through faith-based support, quality education, and women’s empowerment. We strive to honor spiritual values while creating equitable access to knowledge, economic opportunity, and holistic well-being, empowering women and their families to lead dignified, self-reliant lives.
+                        <!-- We bridge the gap between US supporters and impactful development initiatives in India, focusing
+                        on sustainable change and empowerment at the community level. Our approach is grassroots-first,
+                        ensuring every dollar supports real progress. -->
+                    </p>
+                </div>
+            </section>
+            <div class="bg-accent/40 dark:bg-primary/20 py-12 border-y border-accent/20 dark:border-primary/30">
+                <div class="max-w-[1280px] mx-auto px-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="flex flex-col gap-1">
+                        <span class="text-4xl font-black text-primary dark:text-secondary">50k+</span>
+                        <span
+                            class="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Lives
+                            Impacted</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-4xl font-black text-primary dark:text-secondary">120</span>
+                        <span
+                            class="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Communities</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-4xl font-black text-primary dark:text-secondary">20+</span>
+                        <span
+                            class="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Years
+                            Active</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-4xl font-black text-primary dark:text-secondary">95%</span>
+                        <span
+                            class="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Efficiency</span>
+                    </div>
+                </div>
+            </div>
+            <section class="max-w-[1280px] mx-auto px-10 py-20">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                    <div class="space-y-4">
+                        <h2 class="text-secondary text-sm font-bold tracking-widest uppercase">Our Core Pillars</h2>
+                        <h3 class="text-[#111418] dark:text-white text-3xl font-bold">Focus Areas for Sustainable Growth
+                        </h3>
+                    </div>
+                    <a class="text-primary dark:text-secondary font-bold hover:underline flex items-center gap-2"
+                        href="#">
+                        View All Programs <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div
+                        class="bg-white dark:bg-gray-800/40 border border-gray-100 dark:border-gray-800 p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow flex flex-col group">
+                        <div
+                            class="size-14 bg-accent dark:bg-primary/30 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined !text-3xl">school</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 dark:text-white">Educational Access & Learning</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                            Provide quality educational programs, scholarships, and learning resources that expand opportunities for children and adults alike
+                            <!-- Providing quality primary schooling and digital literacy programs to bridge the educational
+                            divide in rural areas. -->
+                        </p>
+                        <button
+                            class="text-primary dark:text-secondary font-bold text-sm flex items-center gap-1 hover:gap-3 transition-all">
+                            Learn More <span class="material-symbols-outlined !text-lg">arrow_forward</span>
+                        </button>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-gray-800/40 border border-gray-100 dark:border-gray-800 p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow flex flex-col group">
+                        <div
+                            class="size-14 bg-orange-50 dark:bg-secondary/20 rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined !text-3xl">female</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 dark:text-white">Women’s Empowerment & Leadership</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                            Promote gender equality through skill development, economic independence programs, mentorship, and confidence-building initiatives
+                            <!-- Facilitating vocational training and building self-help groups to foster financial
+                            independence and leadership. -->
+                        </p>
+                        <button
+                            class="text-primary dark:text-secondary font-bold text-sm flex items-center gap-1 hover:gap-3 transition-all">
+                            Learn More <span class="material-symbols-outlined !text-lg">arrow_forward</span>
+                        </button>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-gray-800/40 border border-gray-100 dark:border-gray-800 p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow flex flex-col group">
+                        <div
+                            class="size-14 bg-accent dark:bg-primary/30 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined !text-3xl">diversity_3</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 dark:text-white">Community Development & Inclusivity</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                            Partner with local stakeholders to address social, cultural, and economic challenges, ensuring sustainable community progress.
+                            <!-- Investing in clean water systems, local infrastructure, and health clinics for resilient,
+                            thriving communities. -->
+                        </p>
+                        <button
+                            class="text-primary dark:text-secondary font-bold text-sm flex items-center gap-1 hover:gap-3 transition-all">
+                            Learn More <span class="material-symbols-outlined !text-lg">arrow_forward</span>
+                        </button>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-gray-800/40 border border-gray-100 dark:border-gray-800 p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow flex flex-col group">
+                        <div
+                            class="size-14 bg-orange-50 dark:bg-secondary/20 rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined !text-3xl">agriculture</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 dark:text-white">Spiritual Enrichment & Religious Support</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                            Strengthen moral and spiritual foundations, fostering compassion, community service, and ethical leadership.
+                            <!-- Supporting small-scale agriculture and micro-business grants to create sustainable income
+                            streams for families. -->
+                        </p>
+                        <button
+                            class="text-primary dark:text-secondary font-bold text-sm flex items-center gap-1 hover:gap-3 transition-all">
+                            Learn More <span class="material-symbols-outlined !text-lg">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section class="max-w-[1280px] mx-auto px-10 pb-20">
+                <div
+                    class="bg-primary text-white rounded-2xl p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10">
+                    <div class="max-w-xl space-y-4">
+                        <h2 class="text-3xl font-bold">Stay Updated with Our Impact</h2>
+                        <p class="text-accent/80 text-lg leading-relaxed">Join our mailing list to receive stories of
+                            hope, progress reports, and opportunities to get involved directly from India.</p>
+                    </div>
+                    <form class="w-full max-w-md flex flex-col sm:flex-row gap-3">
+                        <input
+                            class="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 h-14 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-secondary"
+                            placeholder="Enter your email" type="email" />
+                        <button
+                            class="bg-secondary hover:bg-secondary/90 h-14 px-8 rounded-lg font-bold transition-all whitespace-nowrap"
+                            type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <footer class="bg-white dark:bg-background-dark border-t border-gray-100 dark:border-gray-800 py-16">
+            <div class="max-w-[1280px] mx-auto px-10">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                    <div class="col-span-1 md:col-span-1 space-y-6">
+                        <div class="flex items-center">
+                            <!-- rounded border-2 border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 -->
+                            <div class="flex h-10 w-40 items-center justify-center">
+                                <img src="./logo1.png" alt="Logo">
+                                <!-- <span
+                                    class="text-[9px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">Insert
+                                    Logo</span> -->
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 leading-relaxed">
+                            A non-profit organization registered in the US, dedicated to bringing sustainable change to
+                            communities in India through collective action.
+                        </p>
+                        <div class="flex gap-4">
+                            <a class="text-gray-400 hover:text-primary dark:hover:text-secondary transition-colors"
+                                href="#"><span class="material-symbols-outlined">public</span></a>
+                            <a class="text-gray-400 hover:text-primary dark:hover:text-secondary transition-colors"
+                                href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-6 dark:text-white">Quick Links</h4>
+                        <ul class="space-y-4 text-sm text-gray-500">
+                            <li><a class="hover:text-primary dark:hover:text-secondary transition-colors"
+                                    href="#">Home</a></li>
+                            <li><a class="hover:text-primary dark:hover:text-secondary transition-colors" href="#">About
+                                    Us</a></li>
+                            <li><a class="hover:text-primary dark:hover:text-secondary transition-colors"
+                                    href="#">Financial Transparency</a></li>
+                            <li><a class="hover:text-primary dark:hover:text-secondary transition-colors"
+                                    href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-6 dark:text-white">Programs</h4>
+                        <ul class="space-y-4 text-sm text-gray-500">
+                            <li><a class="hover:text-primary dark:hover:text-secondary transition-colors"
+                                    href="#">Education for All</a></li>
+                            <li><a class="hover:text-primary dark:hover:text-secondary transition-colors"
+                                    href="#">Village Infrastructure</a></li>
+                            <li><a class="hover:text-primary dark:hover:text-secondary transition-colors"
+                                    href="#">Women's Literacy</a></li>
+                            <li><a class="hover:text-primary dark:hover:text-secondary transition-colors" href="#">Small
+                                    Business Grants</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-6 dark:text-white">Contact</h4>
+                        <ul class="space-y-4 text-sm text-gray-500">
+                            <li class="flex items-center gap-2"><span
+                                    class="material-symbols-outlined !text-lg">location_on</span> New York, NY 10001
+                            </li>
+                            <li class="flex items-center gap-2"><span
+                                    class="material-symbols-outlined !text-lg">mail</span> info@yourngo.org</li>
+                            <li class="flex items-center gap-2"><span
+                                    class="material-symbols-outlined !text-lg">call</span> +1 (555) 012-3456</li>
+                        </ul>
+                    </div>
+                </div>
+                <div
+                    class="border-t border-gray-100 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+                    <p>© 2024 Your NGO. All rights reserved. 501(c)(3) Registered Charity.</p>
+                    <div class="flex gap-6">
+                        <a class="hover:text-primary dark:hover:text-secondary" href="#">Privacy Policy</a>
+                        <a class="hover:text-primary dark:hover:text-secondary" href="#">Terms of Service</a>
+                        <a class="hover:text-primary dark:hover:text-secondary" href="#">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

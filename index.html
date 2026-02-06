@@ -55,7 +55,7 @@
                 <div class="flex items-center">
                     <!-- rounded border-2 border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 -->
                     <div class="flex h-12 w-48 items-center justify-center">
-                        <img src="./logo1.png" alt="Logo">
+                        <img src="./Ramcharity_logo.png" alt="Logo">
                         <!-- <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">Insert Logo (Brand + Name)</span> -->
                     </div>
                 </div>
@@ -89,7 +89,7 @@
             <div class="max-w-[1280px] mx-auto px-6 py-6 lg:px-10">
                 <div class="relative overflow-hidden rounded-xl bg-cover bg-center min-h-[560px] flex items-end shadow-2xl"
                     data-alt="Children in a rural classroom in India smiling together"
-                    style='background-image: linear-gradient(to top, rgba(26, 77, 46, 0.95) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGMEBTZjqddNbeSma1KjW4e_UEwtJ6A3-7c32HYjcHlaiRXasy8CCLYO5DBe7tsfT9dfGZQL-fBnnfSeCKwnrhNDjjlwnTnXsyTQOmS0qJY92bJJI_d5xfD4lq9-WZLrnxfVuWcmtbeekolyVpztorbbsmmY0jZJ7G3tqcasMp096HLkx2OgmP_LFoXwhzsxDeGPzilhA4W45Dt1jwsw0jlvXhmuiD7tIBpHJUMiefoMzS27xmKUEH6HYqd1tuho2t_LGIVbY7_Ug");'>
+                    style='background-image: linear-gradient(to top, rgba(26, 77, 46, 0.95) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.1) 100%);'>
                     <div class="p-8 md:p-16 flex flex-col gap-8 max-w-[800px] relative z-10">
                         <div class="flex flex-col gap-4 text-left">
                             <h1 class="text-white text-4xl md:text-6xl font-black leading-tight tracking-[-0.033em]">
@@ -125,7 +125,7 @@
                     </p>
                 </div>
             </section>
-            <div class="bg-accent/40 dark:bg-primary/20 py-12 border-y border-accent/20 dark:border-primary/30">
+            <!-- <div class="bg-accent/40 dark:bg-primary/20 py-12 border-y border-accent/20 dark:border-primary/30">
                 <div class="max-w-[1280px] mx-auto px-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                     <div class="flex flex-col gap-1">
                         <span class="text-4xl font-black text-primary dark:text-secondary">50k+</span>
@@ -150,7 +150,7 @@
                             class="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Efficiency</span>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <section class="max-w-[1280px] mx-auto px-10 py-20">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div class="space-y-4">
@@ -260,7 +260,7 @@
                         <div class="flex items-center">
                             <!-- rounded border-2 border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 -->
                             <div class="flex h-10 w-40 items-center justify-center">
-                                <img src="./logo1.png" alt="Logo">
+                                <img src="./Ramcharity_logo.png" alt="Logo">
                                 <!-- <span
                                     class="text-[9px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">Insert
                                     Logo</span> -->
@@ -307,24 +307,27 @@
                         <h4 class="font-bold mb-6 dark:text-white">Contact</h4>
                         <ul class="space-y-4 text-sm text-gray-500">
                             <li class="flex items-center gap-2"><span
-                                    class="material-symbols-outlined !text-lg">location_on</span> New York, NY 10001
+                                    class="material-symbols-outlined !text-lg">location_on</span> 581, Tamarack Ave, Brea, CA-92821
                             </li>
                             <li class="flex items-center gap-2"><span
-                                    class="material-symbols-outlined !text-lg">mail</span> info@yourngo.org</li>
+                                    class="material-symbols-outlined !text-lg">mail</span> info@ramcharity.org</li>
                             <li class="flex items-center gap-2"><span
-                                    class="material-symbols-outlined !text-lg">call</span> +1 (555) 012-3456</li>
+                                    class="material-symbols-outlined !text-lg">call</span> +1 (714) 672-4726</li>
                         </ul>
                     </div>
                 </div>
                 <div
                     class="border-t border-gray-100 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
-                    <p>© 2024 Your NGO. All rights reserved. 501(c)(3) Registered Charity.</p>
+                    <p>© <span id="year"></span> Ram Charity. All rights reserved. 501( c) , Federal ID# 41-2641931.</p>
                     <div class="flex gap-6">
                         <a class="hover:text-primary dark:hover:text-secondary" href="#">Privacy Policy</a>
                         <a class="hover:text-primary dark:hover:text-secondary" href="#">Terms of Service</a>
                         <a class="hover:text-primary dark:hover:text-secondary" href="#">Cookie Policy</a>
                     </div>
                 </div>
+                <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
             </div>
         </footer>
     </div>

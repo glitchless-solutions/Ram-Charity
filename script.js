@@ -31,6 +31,7 @@ function onPaymentMethodChange(value) {
         chequeSection.classList.add('hidden');
         creditInputs.forEach(input => {
             input.disabled = false;
+            input.required = true;
         });
     } else {
         creditCardSection.classList.add('hidden');
@@ -38,6 +39,7 @@ function onPaymentMethodChange(value) {
         creditInputs.forEach(input => {
             input.value = "";
             input.disabled = true;
+            input.required = false;
         });
     }
 }
@@ -50,17 +52,6 @@ document.getElementById("donationForm").addEventListener("submit", function(e) {
 
     // Convert form data to a normal object
     const data = Object.fromEntries(formData.entries());
-
-    // Get selected payment method
-    const paymentMethod = form.querySelector('input[name="paymentMethod"]:checked')?.value;
-
-    // If credit card selected, manually collect card fields
-    // if (paymentMethod === "credit") {
-    //     data.cardNumber = document.getElementById("cardNumber").value;
-    //     data.expiry = document.getElementById("expiry").value;
-    //     data.cvv = document.getElementById("cvv").value;
-    //     data.zip = document.getElementById("zip").value;
-    // }
 
     console.log("Form Data:", data, form, formData);
 });

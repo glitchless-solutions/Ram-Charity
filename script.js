@@ -54,4 +54,9 @@ document.getElementById("donationForm").addEventListener("submit", function(e) {
     const data = Object.fromEntries(formData.entries());
 
     console.log("Form Data:", data, form, formData);
+
+    const modal = document.getElementById('donationModal');
+    modal.classList.add('hidden');
+
+    document.getElementById('successModal').classList.remove('hidden');
 });

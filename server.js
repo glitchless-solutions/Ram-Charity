@@ -169,9 +169,12 @@ const transporter = nodemailer.createTransport({
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS // Ensure this is your 16-digit App Password
     },
-    connectionTimeout: 10000, // 10 seconds
-    greetingTimeout: 10000,
-    socketTimeout: 10000
+     connectionTimeout: 20000,
+    greetingTimeout: 20000,
+    socketTimeout: 20000,
+    dns: {
+        family: 4 // Forces IPv4 and ignores IPv6
+    }
 });
 
 // 4. Donation API Route

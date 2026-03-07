@@ -162,10 +162,15 @@ db.connect((err) => {
 
 // 3. Nodemailer Transporter
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
     auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD // Ensure this is your 16-digit App Password
+        pass: process.env.EMAIL_PASS // Ensure this is your 16-digit App Password
+    },
+    tls: {
+        rejectUnauthorized: false
     }
 });
 

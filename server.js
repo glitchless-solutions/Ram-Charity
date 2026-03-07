@@ -5,6 +5,7 @@ const mysql = require('mysql2');
 // const bodyParser = require('body-parser');
 const PORT = process.env.PORT;
 const app = express();
+const nodemailer = require('nodemailer');
 
 app.use(express.json());
 app.use((req, res, next) => {
@@ -33,6 +34,15 @@ db.connect((err) => {
     console.log('Connected to MySQL Database.');
 });
 
+const transporter = nodemailer.createTransport({
+    service:'gmail',
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD
+    }
+});
+
+
 app.post('/api/donate', (req, res) => {
     const{firstName, lastName, phone, email, address} = req.body;
     console.log('Form submitted!', req.body);
@@ -42,8 +52,57 @@ app.post('/api/donate', (req, res) => {
         if(err) {
             console.error(err);
             return res.status(500).json({error: "Database Error"});
-        }
-        res.status(200).json({message: "Data saved successfully", id: result.insertId});
+              }
+
+        // console.log('Data saved to DB. Sending email...');
+        const idForUpdate = result.insertId; 
+        console.log('Data saved to DB with ID:', idForUpdate);
+
+        // 4. Define Email Options INSIDE the callback so it has access to the data
+        const mailOptions = {
+            from: process.env.EMAIL_USER,
+            to: process.env.NOTIFICATION_EMAIL,
+            subject: `New Donation from ${firstName} ${lastName}`,
+            html: `
+                <h3>New Donation Details Received</h3>
+                <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${phone}</p>
+                <p><strong>Address:</strong> ${address}</p>
+                <br>
+                <p>This entry has been saved to the database (ID: ${result.insertId}).</p>
+            `
+        };
+
+        // 5. Send the mail
+       transporter.sendMail(mailOptions, (mailError, info) => {
+            if (mailError) {
+                console.error('Email failed to send:', mailError);
+                // We send a success response because data IS in the DB, even if email failed
+                return res.status(200).json({ 
+                    message: "Data saved, but email failed to send", 
+                    id: idForUpdate,
+                    emailSent: 'False'
+                });
+            }
+
+            console.log('Email sent successfully:', info.response);
+
+            // 6. Update the record to 'True' because email was sent
+            const sqlUpdate = "UPDATE donation_data SET is_email_sent = 'True' WHERE id = ?";
+            
+            db.query(sqlUpdate, [idForUpdate], (updateErr) => {
+                if (updateErr) {
+                    console.error('Failed to update email status:', updateErr);
+                }
+                
+                res.status(200).json({ 
+                    message: "Data saved and email sent successfully", 
+                    id: idForUpdate,
+                    emailSent: 'True'
+                });
+            });
+        });
     });
 });
 

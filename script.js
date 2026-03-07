@@ -53,7 +53,7 @@ document.getElementById("donationForm").addEventListener("submit", function(e) {
     // Convert form data to a normal object
     const data = Object.fromEntries(formData.entries());
 
-    fetch('http://localhost:3000/api/donate', {
+    fetch('https://ram-charity.onrender.com/api/donate', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

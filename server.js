@@ -1,18 +1,28 @@
+require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-
+// const cors = require('cors');
+// const bodyParser = require('body-parser');
+const PORT = process.env.PORT;
 const app = express();
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extender: true}));
 
+app.use(express.json());
+app.use((req, res, next) => {
+    console.log('Received request:', req.method, req.url, req.body);
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
+// app.use(cors());
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extender: true}));
+// ALTER TABLE `ram_charity_db`.`ram_charity_db` 
+// RENAME TO  `ram_charity_db`.`donation_data` ;
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'Mumbai@3010',
-    database: 'ram_charity_db'
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME
 });
 
 db.connect((err) => {
@@ -24,11 +34,11 @@ db.connect((err) => {
 });
 
 app.post('/api/donate', (req, res) => {
-    const{first_name, last_name, phone, email, address} = req.body;
+    const{firstName, lastName, phone, email, address} = req.body;
+    console.log('Form submitted!', req.body);
+    const sql = "INSERT INTO donation_data (first_name, last_name, phone_number, email, address) VALUES (?, ?, ?, ?, ?)";
 
-    const sql = "INSERT INTO ram_charity_db (first_name, last_name, phone, email, address) VALUES (?, ?, ?, ?, ?)";
-
-    db.query(sql, [first_name, last_name, phone, email, address], (err, result) => {
+    db.query(sql, [firstName, lastName, phone, email, address], (err, result) => {
         if(err) {
             console.error(err);
             return res.status(500).json({error: "Database Error"});
@@ -37,7 +47,6 @@ app.post('/api/donate', (req, res) => {
     });
 });
 
-const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);
 });

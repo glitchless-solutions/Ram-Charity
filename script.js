@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 document.getElementById("year").textContent = new Date().getFullYear();
 
 function toggleMenu() {
@@ -53,10 +55,36 @@ document.getElementById("donationForm").addEventListener("submit", function(e) {
     // Convert form data to a normal object
     const data = Object.fromEntries(formData.entries());
 
-    console.log("Form Data:", data, form, formData);
+    fetch('http://localhost:3000/donate', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(result => {
+        if(result.success) {
+                console.log("Form Data:", data, form, formData);
 
     const modal = document.getElementById('donationModal');
     modal.classList.add('hidden');
 
     document.getElementById('successModal').classList.remove('hidden');
+    form.reset();
+        } else {
+            showErrorPopup("Database Error:" +result.message);
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        showErrorPopup("Could not connect to server. Check if Node.js is running.");
+    });
+
+
 });
+
+function showErrorPopup(msg) {
+    document.getElementById('errorMessage').innerText = msg;
+    document.getElementById('errorModal').classList.remove('hidden');
+}

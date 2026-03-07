@@ -348,13 +348,19 @@
                     <section data-purpose="form-section">
                         <h3 class="text-brand-saffron text-sm font-semibold uppercase tracking-wider mb-4">Personal Information</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="col-span-1 md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300" for="fullName">Full
-                                    Name</label>
-                                <input
-                                    class="w-full bg-white border-gray-300 text-gray-900 rounded-eight focus:ring-brand-forestGreen focus:border-brand-forestGreen placeholder-gray-400 dark:bg-brand-clayGreen dark:border-brand-clayGreen dark:text-white dark:placeholder-gray-500"
-                                    id="fullName" name="fullName" placeholder="John Doe" required="" type="text" />
-                            </div>
+                            <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300" for="firstName">First Name</label>
+            <input
+                class="w-full bg-white border-gray-300 text-gray-900 rounded-eight focus:ring-brand-forestGreen focus:border-brand-forestGreen placeholder-gray-400 dark:bg-brand-clayGreen dark:border-brand-clayGreen dark:text-white dark:placeholder-gray-500"
+                id="firstName" name="firstName" placeholder="John" required type="text" />
+        </div>
+        <!-- LAST NAME -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300" for="lastName">Last Name</label>
+            <input
+                class="w-full bg-white border-gray-300 text-gray-900 rounded-eight focus:ring-brand-forestGreen focus:border-brand-forestGreen placeholder-gray-400 dark:bg-brand-clayGreen dark:border-brand-clayGreen dark:text-white dark:placeholder-gray-500"
+                id="lastName" name="lastName" placeholder="Doe" required type="text" />
+        </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300"for="email">Email
                                     Address</label>
@@ -534,6 +540,24 @@
             <p class="text-gray-600 dark:text-gray-300 mt-2">We're working hard to bring these details to you. Stay tuned for updates!</p>
         </div>
     </div>
+    <!-- ERROR MODAL -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm animate-fade-in hidden" id="errorModal" onclick="this.classList.add('hidden')">
+    <div class="bg-white rounded-eight shadow-2xl p-6 sm:p-8 max-w-sm text-center border border-gray-200 animate-slide-up dark:bg-brand-darkGreen dark:border-brand-clayGreen">
+        <div class="text-red-500 mb-4">
+            <!-- Red Error Icon -->
+            <svg class="h-12 w-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+        </div>
+        <h3 class="text-xl font-bold text-red-600 dark:text-red-500">Error!</h3>
+        <p class="text-gray-600 dark:text-gray-300 mt-2" id="errorMessage">
+            Something went wrong. Please check if the server is running.
+        </p>
+        <button class="mt-6 w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 rounded-lg transition-colors" onclick="document.getElementById('errorModal').classList.add('hidden')">
+            Close
+        </button>
+    </div>
+</div>
     <script src="script.js"></script>
 </body>
 
